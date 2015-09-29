@@ -1,0 +1,65 @@
+{
+  "name": "lagden-utils",
+  "version": "0.1.0",
+  "description": "Some utilities",
+  "keywords": [
+    "utilities",
+    "utils",
+    "lib",
+    "helpers"
+  ],
+  "bug": {
+    "url": "https://github.com/lagden/utils/issues",
+    "email": "lagden@gmail.com"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Thiago Lagden",
+    "email": "lagden@gmail.com",
+    "url": "http://lagden.in"
+  },
+  "directories": {
+    "dist": "./dist",
+    "es6": "./es6"
+  },
+  "repository": "lagden/utils",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-babel": "^5.2.1",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-xo": "^0.4.0",
+    "mocha": "^2.3.3",
+    "should": "^7.1.0"
+  },
+  "engines": {
+    "node": ">=4.0.0"
+  },
+  "scripts": {
+    "pretest": "gulp",
+    "test": "mocha --compilers js:babel/register --reporter spec --require should",
+    "prepublish": "npm test",
+    "start": "gulp watch"
+  },
+  "xo": {
+    "envs": [
+      "es6"
+    ],
+    "esnext": true,
+    "ignores": [
+      "dist/**"
+    ],
+    "global": [
+      "window",
+      "document"
+    ],
+    "rules": {
+      "new-cap": [
+        2,
+        {
+          "newIsCap": true,
+          "capIsNew": false
+        }
+      ]
+    }
+  }
+}

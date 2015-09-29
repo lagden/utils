@@ -1,0 +1,10 @@
+es6
+test
+.editorconfig
+.git*
+.travis*
+gulpfile.js
+
+# don't ignore .npmignore files
+# these are used in some tests.
+!.npmignore
