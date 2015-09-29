@@ -8,10 +8,16 @@
 
 ## Install
 
-Via [npm](https://www.npmjs.com/)
+Via [NPM](https://www.npmjs.com/)
 
 ```
-npm install lagden-utils
+npm install lagden-utils --save
+```
+
+Via [bower](https://bower.io/)
+
+```
+bower install lagden-utils --save
 ```
 
 

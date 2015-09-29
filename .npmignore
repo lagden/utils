@@ -4,6 +4,7 @@ test
 .git*
 .travis*
 gulpfile.js
+bower.json
 
 # don't ignore .npmignore files
 # these are used in some tests.
