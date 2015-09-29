@@ -5,10 +5,16 @@ const sourcemaps = require('gulp-sourcemaps');
 const xo = require('gulp-xo');
 const babel = require('gulp-babel');
 
+function handleError(err) {
+	if (err) {
+		this.emit('end');
+	}
+}
+
 function script() {
 	return gulp
-		.src('es6/*.js')
-		.pipe(xo())
+		.src('es6/**/*.js')
+		.pipe(xo().on('error', handleError))
 		.pipe(sourcemaps.init())
 		.pipe(babel({
 			modules: 'amd',
@@ -19,7 +25,7 @@ function script() {
 }
 
 function watch() {
-	gulp.watch('dev/es6/*.js', ['script']);
+	gulp.watch('es6/**/*.js', ['script']);
 }
 
 gulp.task('script', script);

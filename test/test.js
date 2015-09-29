@@ -2,48 +2,57 @@
 
 'use strict';
 
-import ioCep from '../es6/index';
+import {jsdom} from 'jsdom';
+import * as utils from '../es6/utils';
 
-describe('Consulta', () => {
-	describe('valid', () => {
-		it('should be true and equal', done => {
-			ioCep('04653-055')
-				.then(res => {
-					res.success.should.be.true();
-					res.logradouro.should.be.equal('Rua Amália Cerelo Godespoti');
-					done();
-				});
-		});
+const window = jsdom('<div id="apenasUmShow">Apenas um show</div>', {}).defaultView;
+
+describe('Utils', () => {
+	it('animationEvent', () => {
+		const eventName = utils.animationEvent(window.document);
+		eventName.should.be.Array();
+		eventName[0].should.be.equalOneOf('animation', 'MozAnimation', 'OAnimation', 'webkitAnimation');
 	});
 
-	describe('invalid', () => {
-		it('should be false and equal', done => {
-			ioCep('00000-000')
-				.then(res => {
-					res.success.should.be.false();
-					res.message.should.be.equal('CEP not found or parse error');
-					done();
-				});
-		});
+	it('escapeHtml', () => {
+		const escaped = utils.escapeHtml('<a href="http://lagden.in/?a=123&b=456">Lagden\'s stuff</a>');
+		escaped.should.be.exactly('&lt;a href=&quot;http://lagden.in/?a=123&amp;b=456&quot;&gt;Lagden&#39;s stuff&lt;/a&gt;');
 	});
 
-	describe('string', () => {
-		it('should be an error about string', done => {
-			ioCep(1310940)
-				.catch(err => {
-					err.should.be.equal('Must be a string');
-					done();
-				});
-		});
+	it('isElement', () => {
+		const obj = window.document.querySelector('#apenasUmShow');
+		const isElement = utils.isElement(obj);
+		isElement.should.be.true();
+		obj.id.should.be.exactly('apenasUmShow');
 	});
 
-	describe('format', () => {
-		it('should be an error about format', done => {
-			ioCep('1310')
-				.catch(err => {
-					err.should.be.equal('Invalid format');
-					done();
-				});
-		});
+	it('objectAssign', () => {
+		function Helper() {}
+		Helper.prototype.show = () => {
+			return 'ulala';
+		};
+
+		function Unicorn(...colors) {
+			this.rainbow = colors;
+		}
+
+		utils.objectAssign(Unicorn.prototype, Helper.prototype);
+		const unicorn = new Unicorn('red', 'blue', 'green');
+
+		unicorn.show().should.be.exactly('ulala');
+		utils.objectAssign({foo: 0}, {bar: 1}).should.be.deepEqual({foo: 0, bar: 1});
+		utils.objectAssign({foo: 0}, null, undefined).should.be.deepEqual({foo: 0});
+		utils.objectAssign({foo: 0}, null, undefined, {bar: 1}, null).should.be.deepEqual({foo: 0, bar: 1});
+	});
+
+	it('textNode', () => {
+		const node = window.document.getElementById('apenasUmShow');
+		utils.textNode(node, ' legal');
+		node.textContent.should.be.exactly('Apenas um show legal');
+	});
+
+	it('transitionEvent', () => {
+		const eventName = utils.transitionEvent(window.document);
+		eventName.should.be.equalOneOf('transitionend', 'mozTransitionEnd', 'oTransitionEnd', 'webkitTransitionEnd');
 	});
 });

@@ -24,10 +24,12 @@
   },
   "repository": "lagden/utils",
   "devDependencies": {
+    "babel": "^5.8.23",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-xo": "^0.4.0",
+    "jsdom": "^6.5.1",
     "mocha": "^2.3.3",
     "should": "^7.1.0"
   },
@@ -35,9 +37,9 @@
     "node": ">=4.0.0"
   },
   "scripts": {
-    "pretest": "gulp",
+    "pretest": "xo",
     "test": "mocha --compilers js:babel/register --reporter spec --require should",
-    "prepublish": "npm test",
+    "prepublish": "gulp && npm test",
     "start": "gulp watch"
   },
   "xo": {
@@ -50,9 +52,19 @@
     ],
     "global": [
       "window",
-      "document"
+      "document",
+      "HTMLElement"
     ],
     "rules": {
+      "prefer-reflect": [
+        2,
+        {
+          "exceptions": [
+            "apply",
+            "call"
+          ]
+        }
+      ],
       "new-cap": [
         2,
         {
