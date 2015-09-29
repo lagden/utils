@@ -3,7 +3,7 @@
 [![Dependency Status](https://david-dm.org/lagden/utils.svg)](https://david-dm.org/lagden/utils) 
 [![devDependency Status](https://david-dm.org/lagden/utils/dev-status.svg)](https://david-dm.org/lagden/utils#info=devDependencies) 
 
-> Some utilities.
+> Some helpers and utilities.
 
 
 ## Install
