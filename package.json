@@ -1,6 +1,6 @@
 {
   "name": "lagden-utils",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Some utilities",
   "keywords": [
     "utilities",
@@ -18,11 +18,17 @@
     "email": "lagden@gmail.com",
     "url": "http://lagden.in"
   },
-  "directories": {
-    "dist": "./dist",
-    "es6": "./es6"
-  },
+  "files": [
+    "dist",
+    "es6"
+  ],
   "repository": "lagden/utils",
+  "scripts": {
+    "pretest": "xo",
+    "test": "mocha --compilers js:babel/register --reporter spec --require should",
+    "prepublish": "gulp && npm test",
+    "start": "gulp watch"
+  },
   "devDependencies": {
     "babel": "^5.8.23",
     "gulp": "^3.9.0",
@@ -36,12 +42,6 @@
   },
   "engines": {
     "node": ">=4.0.0"
-  },
-  "scripts": {
-    "pretest": "xo",
-    "test": "mocha --compilers js:babel/register --reporter spec --require should",
-    "prepublish": "gulp && npm test",
-    "start": "gulp watch"
   },
   "xo": {
     "envs": [

@@ -11,7 +11,9 @@
     "dist/utils.js"
   ],
   "moduleType": [
+    "globals",
     "amd",
+    "node",
     "es6"
   ],
   "repository": {

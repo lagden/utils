@@ -1,4 +1,16 @@
-define(['exports', 'module', './animation-event', './escape-html', './is-element', './object-assign', './text-node', './transition-event'], function (exports, module, _animationEvent, _escapeHtml, _isElement, _objectAssign, _textNode, _transitionEvent) {
+(function (global, factory) {
+	if (typeof define === 'function' && define.amd) {
+		define(['exports', 'module', './animation-event', './escape-html', './is-element', './object-assign', './text-node', './transition-event'], factory);
+	} else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
+		factory(exports, module, require('./animation-event'), require('./escape-html'), require('./is-element'), require('./object-assign'), require('./text-node'), require('./transition-event'));
+	} else {
+		var mod = {
+			exports: {}
+		};
+		factory(mod.exports, mod, global.animationEvent, global.escapeHtml, global.isElement, global.objectAssign, global.textNode, global.transitionEvent);
+		global.utils = mod.exports;
+	}
+})(this, function (exports, module, _animationEvent, _escapeHtml, _isElement, _objectAssign, _textNode, _transitionEvent) {
 	'use strict';
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }

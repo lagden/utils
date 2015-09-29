@@ -1,4 +1,16 @@
-define(['exports', 'module', './common/detect'], function (exports, module, _commonDetect) {
+(function (global, factory) {
+	if (typeof define === 'function' && define.amd) {
+		define(['exports', 'module', './common/detect'], factory);
+	} else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
+		factory(exports, module, require('./common/detect'));
+	} else {
+		var mod = {
+			exports: {}
+		};
+		factory(mod.exports, mod, global.detect);
+		global.transitionEvent = mod.exports;
+	}
+})(this, function (exports, module, _commonDetect) {
 	'use strict';
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }

@@ -17,7 +17,7 @@ function script() {
 		.pipe(xo().on('error', handleError))
 		.pipe(sourcemaps.init())
 		.pipe(babel({
-			modules: 'amd',
+			modules: 'umd',
 			experimental: true
 		}))
 		.pipe(sourcemaps.write('.'))
