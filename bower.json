@@ -7,6 +7,9 @@
     "email": "lagden@gmail.com",
     "homepage": "http://lagden.in"
   }],
+  "main": [
+    "dist/utils.js"
+  ],
   "moduleType": [
     "amd",
     "es6"
