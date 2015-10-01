@@ -45,6 +45,11 @@ describe('Utils', () => {
 		utils.objectAssign({foo: 0}, null, undefined, {bar: 1}, null).should.be.deepEqual({foo: 0, bar: 1});
 	});
 
+	it('qS (querySelector)', () => {
+		const node = utils.qS('#apenasUmShow', window.document);
+		node.id.should.be.exactly('apenasUmShow');
+	});
+
 	it('textNode', () => {
 		const node = window.document.getElementById('apenasUmShow');
 		utils.textNode(node, ' legal');

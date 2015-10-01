@@ -1,16 +1,16 @@
 (function (global, factory) {
 	if (typeof define === 'function' && define.amd) {
-		define(['exports', 'module', './animation-event', './escape-html', './is-element', './object-assign', './text-node', './transition-event'], factory);
+		define(['exports', 'module', './animation-event', './escape-html', './is-element', './object-assign', './qs', './text-node', './transition-event'], factory);
 	} else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
-		factory(exports, module, require('./animation-event'), require('./escape-html'), require('./is-element'), require('./object-assign'), require('./text-node'), require('./transition-event'));
+		factory(exports, module, require('./animation-event'), require('./escape-html'), require('./is-element'), require('./object-assign'), require('./qs'), require('./text-node'), require('./transition-event'));
 	} else {
 		var mod = {
 			exports: {}
 		};
-		factory(mod.exports, mod, global.animationEvent, global.escapeHtml, global.isElement, global.objectAssign, global.textNode, global.transitionEvent);
+		factory(mod.exports, mod, global.animationEvent, global.escapeHtml, global.isElement, global.objectAssign, global.qS, global.textNode, global.transitionEvent);
 		global.utils = mod.exports;
 	}
-})(this, function (exports, module, _animationEvent, _escapeHtml, _isElement, _objectAssign, _textNode, _transitionEvent) {
+})(this, function (exports, module, _animationEvent, _escapeHtml, _isElement, _objectAssign, _qs, _textNode, _transitionEvent) {
 	'use strict';
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
@@ -23,6 +23,8 @@
 
 	var _objectAssign2 = _interopRequireDefault(_objectAssign);
 
+	var _qS = _interopRequireDefault(_qs);
+
 	var _textNode2 = _interopRequireDefault(_textNode);
 
 	var _transitionEvent2 = _interopRequireDefault(_transitionEvent);
@@ -32,6 +34,7 @@
 		escapeHtml: _escapeHtml2['default'],
 		isElement: _isElement2['default'],
 		objectAssign: _objectAssign2['default'],
+		qS: _qS['default'],
 		textNode: _textNode2['default'],
 		transitionEvent: _transitionEvent2['default']
 	};
