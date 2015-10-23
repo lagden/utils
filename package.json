@@ -28,7 +28,6 @@
     "coverage": "istanbul cover _mocha -- --compilers js:babel/register --reporter spec",
     "pretest": "xo",
     "test": "npm run coverage",
-    "prepublish": "gulp && npm test",
     "start": "gulp watch"
   },
   "devDependencies": {

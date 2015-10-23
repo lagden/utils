@@ -1,6 +1,6 @@
 # Utils 
 [![Build Status](https://travis-ci.org/lagden/utils.svg?branch=master)](https://travis-ci.org/lagden/utils) 
-[![Coverage Status](https://img.shields.io/codecov/c/github/lagden/utils.svg)](https://codecov.io/github/lagden/utils)
+[![Coverage Status](https://codecov.io/github/lagden/utils/coverage.svg?branch=master)](https://codecov.io/github/lagden/utils?branch=master)
 [![Dependency Status](https://david-dm.org/lagden/utils.svg)](https://david-dm.org/lagden/utils) 
 [![devDependency Status](https://david-dm.org/lagden/utils/dev-status.svg)](https://david-dm.org/lagden/utils#info=devDependencies) 
 
