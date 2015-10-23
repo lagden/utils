@@ -18,10 +18,6 @@
     "email": "lagden@gmail.com",
     "url": "http://lagden.in"
   },
-  "files": [
-    "dist",
-    "src"
-  ],
   "repository": "lagden/utils",
   "scripts": {
     "coverage": "nyc report --reporter=text-lcov | codecov",
