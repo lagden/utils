@@ -20,26 +20,25 @@
   },
   "files": [
     "dist",
-    "es6"
+    "src"
   ],
   "repository": "lagden/utils",
   "scripts": {
-    "coverage": "istanbul cover _mocha -- --compilers js:babel/register --reporter spec",
+    "coverage": "nyc report --reporter=text-lcov | codecov",
     "pretest": "xo",
-    "test": "npm run coverage",
+    "test": "nyc ava",
     "start": "gulp watch"
   },
   "devDependencies": {
+    "ava": "^0.2.0",
     "babel": "^5.8.23",
     "codecov.io": "^0.1.6",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-xo": "^0.4.0",
-    "istanbul": "^0.4.0",
     "jsdom": "^7.0.2",
-    "mocha": "^2.3.3",
-    "should": "^7.1.0",
+    "nyc": "^3.2.2",
     "xo": "^0.10.0"
   },
   "engines": {

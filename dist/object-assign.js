@@ -26,7 +26,7 @@
 		return Object(val);
 	}
 
-	function objectAssign(target, source) {
+	function ponyfill(target, source) {
 		var from = undefined;
 		var symbols = undefined;
 		var to = toObject(target);
@@ -52,6 +52,8 @@
 		return to;
 	}
 
-	module.exports = Object.assign || objectAssign;
+	var objectAssign = Object.assign || ponyfill;
+
+	module.exports = objectAssign;
 });
 //# sourceMappingURL=object-assign.js.map

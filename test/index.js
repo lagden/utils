@@ -1,64 +1,74 @@
-/* global describe, it */
-
 'use strict';
 
-import 'should';
+import test from 'ava';
 import {jsdom} from 'jsdom';
-import * as utils from '../es6/utils';
+import * as utils from '../src/utils';
 
 const window = jsdom('<div id="apenasUmShow">Apenas um show</div>', {}).defaultView;
 
-describe('Utils', () => {
-	it('animationEvent', () => {
-		const eventName = utils.animationEvent(window.document);
-		eventName.should.be.Array();
-		eventName[0].should.be.equalOneOf('animation', 'MozAnimation', 'OAnimation', 'webkitAnimation');
-	});
+test('animationEvent', t => {
+	const eventName = utils.animationEvent(window.document);
+	t.true(eventName instanceof Array);
+	t.regexTest(/(animation|MozAnimation|OAnimation|webkitAnimation)/, eventName[0]);
+	t.end();
+});
 
-	it('escapeHtml', () => {
-		const escaped = utils.escapeHtml('<a href="http://lagden.in/?a=123&b=456">Lagden\'s stuff</a>');
-		escaped.should.be.exactly('&lt;a href=&quot;http://lagden.in/?a=123&amp;b=456&quot;&gt;Lagden&#39;s stuff&lt;/a&gt;');
-	});
+test('escapeHtml', t => {
+	const escaped = utils.escapeHtml('<a href="http://lagden.in/?a=123&b=456">Lagden\'s stuff</a>');
+	t.same(escaped, '&lt;a href=&quot;http://lagden.in/?a=123&amp;b=456&quot;&gt;Lagden&#39;s stuff&lt;/a&gt;');
+	t.end();
+});
 
-	it('isElement', () => {
-		const obj = window.document.querySelector('#apenasUmShow');
-		const isElement = utils.isElement(obj);
-		isElement.should.be.true();
-		obj.id.should.be.exactly('apenasUmShow');
-	});
+test('isElement', t => {
+	const obj = window.document.querySelector('#apenasUmShow');
+	const isElement = utils.isElement(obj);
+	const isNotElement = utils.isElement({});
+	t.true(isElement);
+	t.false(isNotElement);
+	t.is(obj.id, 'apenasUmShow');
+	t.end();
+});
 
-	it('objectAssign', () => {
-		function Helper() {}
-		Helper.prototype.show = () => {
-			return 'ulala';
-		};
+test('objectAssign', t => {
+	function Helper() {}
+	Helper.prototype.show = () => {
+		return 'ulala';
+	};
 
-		function Unicorn(...colors) {
-			this.rainbow = colors;
-		}
+	function Unicorn(...colors) {
+		this.rainbow = colors;
+	}
 
-		utils.objectAssign(Unicorn.prototype, Helper.prototype);
-		const unicorn = new Unicorn('red', 'blue', 'green');
+	utils.objectAssign(Unicorn.prototype, Helper.prototype);
+	const unicorn = new Unicorn('red', 'blue', 'green');
 
-		unicorn.show().should.be.exactly('ulala');
-		utils.objectAssign({foo: 0}, {bar: 1}).should.be.deepEqual({foo: 0, bar: 1});
-		utils.objectAssign({foo: 0}, null, undefined).should.be.deepEqual({foo: 0});
-		utils.objectAssign({foo: 0}, null, undefined, {bar: 1}, null).should.be.deepEqual({foo: 0, bar: 1});
-	});
+	t.same(unicorn.show(), 'ulala');
+	t.same(utils.objectAssign({foo: 0}, {bar: 1}), {foo: 0, bar: 1});
+	t.same(utils.objectAssign({foo: 0}, null, undefined), {foo: 0});
+	t.same(utils.objectAssign({foo: 0}, null, undefined, {bar: 1}, null), {foo: 0, bar: 1});
+	t.end();
+});
 
-	it('qS (querySelector)', () => {
-		const node = utils.qS('#apenasUmShow', window.document);
-		node.id.should.be.exactly('apenasUmShow');
-	});
+test('qS (querySelector)', t => {
+	const node = utils.qS('#apenasUmShow', window.document);
+	t.same(node.id, 'apenasUmShow');
+	t.end();
+});
 
-	it('textNode', () => {
-		const node = window.document.getElementById('apenasUmShow');
-		utils.textNode(node, ' legal');
-		node.textContent.should.be.exactly('Apenas um show legal');
-	});
+test('textNode', t => {
+	const node = window.document.getElementById('apenasUmShow');
+	utils.textNode(node, ' legal');
+	t.same(node.textContent, 'Apenas um show legal');
 
-	it('transitionEvent', () => {
-		const eventName = utils.transitionEvent(window.document);
-		eventName.should.be.equalOneOf('transitionend', 'mozTransitionEnd', 'oTransitionEnd', 'webkitTransitionEnd');
-	});
+	/* jsdom - Missing insertAdjacentHTML */
+	// utils.textNode(node, ' <b>ulala</b>', true);
+	// t.same(node.previousElementSibling.tagName, 'B');
+	// t.same(node.previousElementSibling.textContent, 'ulala');
+	t.end();
+});
+
+test('transitionEvent', t => {
+	const eventName = utils.transitionEvent(window.document);
+	t.regexTest(/(transitionend|mozTransitionEnd|oTransitionEnd|webkitTransitionEnd)/, eventName);
+	t.end();
 });

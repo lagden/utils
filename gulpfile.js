@@ -13,7 +13,7 @@ function handleError(err) {
 
 function script() {
 	return gulp
-		.src('es6/**/*.js')
+		.src('src/**/*.js')
 		.pipe(xo().on('error', handleError))
 		.pipe(sourcemaps.init())
 		.pipe(babel({
@@ -25,7 +25,7 @@ function script() {
 }
 
 function watch() {
-	gulp.watch('es6/**/*.js', ['script']);
+	gulp.watch('src/**/*.js', ['script']);
 }
 
 gulp.task('script', script);

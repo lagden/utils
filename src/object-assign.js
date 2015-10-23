@@ -13,7 +13,7 @@ function toObject(val) {
 	return Object(val);
 }
 
-function objectAssign(target, source) {
+function ponyfill(target, source) {
 	let from;
 	let symbols;
 	const to = toObject(target);
@@ -39,4 +39,6 @@ function objectAssign(target, source) {
 	return to;
 }
 
-export default Object.assign || objectAssign;
+const objectAssign = Object.assign || ponyfill;
+
+export default objectAssign;
