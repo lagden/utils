@@ -2,7 +2,7 @@
 
 import test from 'ava';
 import {jsdom} from 'jsdom';
-import * as utils from '../src/utils';
+import * as utils from '../dist/utils';
 
 const window = jsdom('<div id="apenasUmShow">Apenas um show</div>', {}).defaultView;
 
