@@ -2,6 +2,7 @@
 
 'use strict';
 
+import 'should';
 import {jsdom} from 'jsdom';
 import * as utils from '../es6/utils';
 

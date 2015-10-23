@@ -24,21 +24,25 @@
   ],
   "repository": "lagden/utils",
   "scripts": {
+    "codecov-update": "cat ./coverage/coverage.json | codecov.io.js",
+    "coverage": "istanbul cover _mocha -- --compilers js:babel/register --reporter spec",
     "pretest": "xo",
-    "test": "mocha --compilers js:babel/register --reporter spec --require should",
+    "test": "npm run coverage",
     "prepublish": "gulp && npm test",
     "start": "gulp watch"
   },
   "devDependencies": {
     "babel": "^5.8.23",
+    "codecov.io": "^0.1.6",
     "gulp": "^3.9.0",
     "gulp-babel": "^5.2.1",
     "gulp-sourcemaps": "^1.6.0",
     "gulp-xo": "^0.4.0",
-    "jsdom": "^6.5.1",
+    "istanbul": "^0.4.0",
+    "jsdom": "^7.0.2",
     "mocha": "^2.3.3",
     "should": "^7.1.0",
-    "xo": "^0.9.0"
+    "xo": "^0.10.0"
   },
   "engines": {
     "node": ">=4.0.0"
