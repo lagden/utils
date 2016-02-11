@@ -1,7 +1,7 @@
 'use strict';
 
-function qS(el, doc = document) {
-	return doc.querySelector(el);
+function qS(el) {
+	return document.querySelector(el);
 }
 
 export default qS;

@@ -1,23 +1,26 @@
 (function (global, factory) {
-	if (typeof define === 'function' && define.amd) {
-		define(['exports', 'module'], factory);
-	} else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
-		factory(exports, module);
+	if (typeof define === "function" && define.amd) {
+		define(['exports'], factory);
+	} else if (typeof exports !== "undefined") {
+		factory(exports);
 	} else {
 		var mod = {
 			exports: {}
 		};
-		factory(mod.exports, mod);
+		factory(mod.exports);
 		global.textNode = mod.exports;
 	}
-})(this, function (exports, module) {
+})(this, function (exports) {
 	'use strict';
 
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
 	function textNode(node, txt) {
-		var html = arguments.length <= 2 || arguments[2] === undefined ? false : arguments[2];
+		var stringHTML = arguments.length <= 2 || arguments[2] === undefined ? false : arguments[2];
 
 		var doc = node.ownerDocument;
-		if (html) {
+		if (stringHTML) {
 			node.insertAdjacentHTML('afterbegin', txt);
 		} else {
 			node.appendChild(doc.createTextNode(txt));
@@ -25,6 +28,6 @@
 		return node;
 	}
 
-	module.exports = textNode;
+	exports.default = textNode;
 });
 //# sourceMappingURL=text-node.js.map

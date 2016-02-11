@@ -1,8 +1,8 @@
 'use strict';
 
-function textNode(node, txt, html = false) {
+function textNode(node, txt, stringHTML = false) {
 	const doc = node.ownerDocument;
-	if (html) {
+	if (stringHTML) {
 		node.insertAdjacentHTML('afterbegin', txt);
 	} else {
 		node.appendChild(doc.createTextNode(txt));

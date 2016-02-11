@@ -1,29 +1,35 @@
 (function (global, factory) {
-	if (typeof define === 'function' && define.amd) {
-		define(['exports', 'module', './common/detect'], factory);
-	} else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
-		factory(exports, module, require('./common/detect'));
+	if (typeof define === "function" && define.amd) {
+		define(['exports', './common/detect'], factory);
+	} else if (typeof exports !== "undefined") {
+		factory(exports, require('./common/detect'));
 	} else {
 		var mod = {
 			exports: {}
 		};
-		factory(mod.exports, mod, global.detect);
+		factory(mod.exports, global.detect);
 		global.animationEvent = mod.exports;
 	}
-})(this, function (exports, module, _commonDetect) {
+})(this, function (exports, _detect) {
 	'use strict';
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
 
-	var _detect = _interopRequireDefault(_commonDetect);
+	var _detect2 = _interopRequireDefault(_detect);
 
-	function animationEvent() {
-		var d = arguments.length <= 0 || arguments[0] === undefined ? document : arguments[0];
-
-		var VENDOR = [['animation', 'animationstart', 'animationiteration', 'animationend'], ['MozAnimation', 'mozAnimationStart', 'mozAnimationIteration', 'mozAnimationEnd'], ['OAnimation', 'oAnimationStart', 'oAnimationIteration', 'oAnimationEnd'], ['webkitAnimation', 'webkitAnimationStart', 'webkitAnimationIteration', 'webkitAnimationEnd']];
-		return (0, _detect['default'])(VENDOR, d);
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : {
+			default: obj
+		};
 	}
 
-	module.exports = animationEvent;
+	function animationEvent() {
+		var VENDOR = [['animation', 'animationstart', 'animationiteration', 'animationend'], ['MozAnimation', 'mozAnimationStart', 'mozAnimationIteration', 'mozAnimationEnd'], ['OAnimation', 'oAnimationStart', 'oAnimationIteration', 'oAnimationEnd'], ['webkitAnimation', 'webkitAnimationStart', 'webkitAnimationIteration', 'webkitAnimationEnd']];
+		return (0, _detect2.default)(VENDOR);
+	}
+
+	exports.default = animationEvent;
 });
 //# sourceMappingURL=animation-event.js.map

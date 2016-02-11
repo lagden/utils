@@ -2,7 +2,7 @@
 
 import detect from './common/detect';
 
-function animationEvent(d = document) {
+function animationEvent() {
 	const VENDOR = [
 		[
 			'animation',
@@ -26,7 +26,7 @@ function animationEvent(d = document) {
 			'webkitAnimationEnd'
 		]
 	];
-	return detect(VENDOR, d);
+	return detect(VENDOR);
 }
 
 export default animationEvent;

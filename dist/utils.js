@@ -1,19 +1,22 @@
 (function (global, factory) {
-	if (typeof define === 'function' && define.amd) {
-		define(['exports', 'module', './animation-event', './escape-html', './is-element', './object-assign', './qs', './text-node', './transition-event'], factory);
-	} else if (typeof exports !== 'undefined' && typeof module !== 'undefined') {
-		factory(exports, module, require('./animation-event'), require('./escape-html'), require('./is-element'), require('./object-assign'), require('./qs'), require('./text-node'), require('./transition-event'));
+	if (typeof define === "function" && define.amd) {
+		define(['exports', './animation-event', './escape-html', './is-element', './qs', './text-node', './transition-event'], factory);
+	} else if (typeof exports !== "undefined") {
+		factory(exports, require('./animation-event'), require('./escape-html'), require('./is-element'), require('./qs'), require('./text-node'), require('./transition-event'));
 	} else {
 		var mod = {
 			exports: {}
 		};
-		factory(mod.exports, mod, global.animationEvent, global.escapeHtml, global.isElement, global.objectAssign, global.qS, global.textNode, global.transitionEvent);
+		factory(mod.exports, global.animationEvent, global.escapeHtml, global.isElement, global.qs, global.textNode, global.transitionEvent);
 		global.utils = mod.exports;
 	}
-})(this, function (exports, module, _animationEvent, _escapeHtml, _isElement, _objectAssign, _qs, _textNode, _transitionEvent) {
+})(this, function (exports, _animationEvent, _escapeHtml, _isElement, _qs, _textNode, _transitionEvent) {
 	'use strict';
 
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { 'default': obj }; }
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+	exports.transitionEvent = exports.textNode = exports.qS = exports.isElement = exports.escapeHtml = exports.animationEvent = undefined;
 
 	var _animationEvent2 = _interopRequireDefault(_animationEvent);
 
@@ -21,22 +24,23 @@
 
 	var _isElement2 = _interopRequireDefault(_isElement);
 
-	var _objectAssign2 = _interopRequireDefault(_objectAssign);
-
-	var _qS = _interopRequireDefault(_qs);
+	var _qs2 = _interopRequireDefault(_qs);
 
 	var _textNode2 = _interopRequireDefault(_textNode);
 
 	var _transitionEvent2 = _interopRequireDefault(_transitionEvent);
 
-	module.exports = {
-		animationEvent: _animationEvent2['default'],
-		escapeHtml: _escapeHtml2['default'],
-		isElement: _isElement2['default'],
-		objectAssign: _objectAssign2['default'],
-		qS: _qS['default'],
-		textNode: _textNode2['default'],
-		transitionEvent: _transitionEvent2['default']
-	};
+	function _interopRequireDefault(obj) {
+		return obj && obj.__esModule ? obj : {
+			default: obj
+		};
+	}
+
+	exports.animationEvent = _animationEvent2.default;
+	exports.escapeHtml = _escapeHtml2.default;
+	exports.isElement = _isElement2.default;
+	exports.qS = _qs2.default;
+	exports.textNode = _textNode2.default;
+	exports.transitionEvent = _transitionEvent2.default;
 });
 //# sourceMappingURL=utils.js.map

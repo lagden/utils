@@ -1,13 +1,13 @@
 'use strict';
 
-function detect(lista, d = document) {
-	while (lista.length) {
-		const item = lista.shift();
-		if (d.documentElement.style[item[0]] !== undefined) {
-			return item;
+function detect(lista) {
+	let i = 0;
+	for (i = lista.length - 1; i >= 0; i--) {
+		if (document.documentElement.style[lista[i][0]] !== undefined) {
+			break;
 		}
 	}
-	return lista[0];
+	return lista[i];
 }
 
 export default detect;

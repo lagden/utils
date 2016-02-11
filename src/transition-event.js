@@ -2,14 +2,14 @@
 
 import detect from './common/detect';
 
-function transitionEvent(d = document) {
+function transitionEvent() {
 	const VENDOR = [
 		['transition', 'transitionend'],
 		['MozTransition', 'mozTransitionEnd'],
 		['OTransition', 'oTransitionEnd'],
 		['webkitTransition', 'webkitTransitionEnd']
 	];
-	return detect(VENDOR, d)[1];
+	return detect(VENDOR)[1];
 }
 
 export default transitionEvent;

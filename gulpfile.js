@@ -16,10 +16,7 @@ function script() {
 		.src('src/**/*.js')
 		.pipe(xo().on('error', handleError))
 		.pipe(sourcemaps.init())
-		.pipe(babel({
-			modules: 'umd',
-			experimental: true
-		}))
+		.pipe(babel())
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('dist'));
 }
