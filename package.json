@@ -21,7 +21,7 @@
   "repository": "lagden/utils",
   "scripts": {
     "report": "nyc report --reporter=html",
-    "coverage": "nyc report --reporter=text-lcov | codecov",
+    "coverage": "nyc report --reporter=lcov | codecov",
     "pretest": "xo",
     "test": "nyc ava",
     "start": "gulp watch"
