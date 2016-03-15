@@ -11,7 +11,7 @@
 [devDep]:     https://david-dm.org/lagden/utils#info=devDependencies
 
 
-> Some helpers and utilities only.
+Some helpers and utilities.
 
 
 ## Install
