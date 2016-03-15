@@ -1,9 +1,13 @@
-test
+*.log
 .editorconfig
 .git*
 .travis*
-gulpfile.js
-bower.json
+gulpf*
+bower*
+.nyc_output/
+coverage/
+node_modules/
+test/
 
 # don't ignore .npmignore files
 # these are used in some tests.

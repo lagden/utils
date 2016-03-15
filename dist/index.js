@@ -1,16 +1,4 @@
-(function (global, factory) {
-	if (typeof define === "function" && define.amd) {
-		define(['exports', './animation-event', './escape-html', './is-element', './qs', './text-node', './transition-event'], factory);
-	} else if (typeof exports !== "undefined") {
-		factory(exports, require('./animation-event'), require('./escape-html'), require('./is-element'), require('./qs'), require('./text-node'), require('./transition-event'));
-	} else {
-		var mod = {
-			exports: {}
-		};
-		factory(mod.exports, global.animationEvent, global.escapeHtml, global.isElement, global.qs, global.textNode, global.transitionEvent);
-		global.utils = mod.exports;
-	}
-})(this, function (exports, _animationEvent, _escapeHtml, _isElement, _qs, _textNode, _transitionEvent) {
+define(['exports', './lib/animation-event', './lib/escape-html', './lib/is-element', './lib/qs', './lib/text-node', './lib/transition-event'], function (exports, _animationEvent, _escapeHtml, _isElement, _qs, _textNode, _transitionEvent) {
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -43,4 +31,3 @@
 	exports.textNode = _textNode2.default;
 	exports.transitionEvent = _transitionEvent2.default;
 });
-//# sourceMappingURL=utils.js.map

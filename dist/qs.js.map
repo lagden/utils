@@ -1,1 +1,0 @@
-{"version":3,"sources":["qs.js"],"names":[],"mappings":";;;;;;;;;;;;;AAAA;;;;;AAEA,UAAS,EAAT,CAAY,EAAZ,EAAgB;AACf,SAAO,SAAS,aAAT,CAAuB,EAAvB,CAAP,CADe;EAAhB;;mBAIe","file":"qs.js","sourcesContent":["'use strict';\n\nfunction qS(el) {\n\treturn document.querySelector(el);\n}\n\nexport default qS;\n"],"sourceRoot":"/source/"}

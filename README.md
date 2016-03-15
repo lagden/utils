@@ -1,10 +1,17 @@
-# Utils 
-[![Build Status](https://travis-ci.org/lagden/utils.svg?branch=master)](https://travis-ci.org/lagden/utils) 
-[![Coverage Status](https://codecov.io/github/lagden/utils/coverage.svg?branch=master)](https://codecov.io/github/lagden/utils?branch=master)
-[![Dependency Status](https://david-dm.org/lagden/utils.svg)](https://david-dm.org/lagden/utils) 
-[![devDependency Status](https://david-dm.org/lagden/utils/dev-status.svg)](https://david-dm.org/lagden/utils#info=devDependencies) 
+# Utils
+[![Build Status][ci-img]][ci]
+[![Coverage Status][cover-img]][cover]
+[![devDependency Status][devDep-img]][devDep]
 
-> Some helpers and utilities.
+[ci-img]:     https://travis-ci.org/lagden/utils.svg
+[ci]:         https://travis-ci.org/lagden/utils
+[cover-img]:  https://codecov.io/github/lagden/utils/coverage.svg?branch=master
+[cover]:      https://codecov.io/github/lagden/utils?branch=master
+[devDep-img]: https://david-dm.org/lagden/utils/dev-status.svg
+[devDep]:     https://david-dm.org/lagden/utils#info=devDependencies
+
+
+> Some helpers and utilities only.
 
 
 ## Install

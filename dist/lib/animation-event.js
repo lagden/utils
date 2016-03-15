@@ -1,16 +1,4 @@
-(function (global, factory) {
-	if (typeof define === "function" && define.amd) {
-		define(['exports', './common/detect'], factory);
-	} else if (typeof exports !== "undefined") {
-		factory(exports, require('./common/detect'));
-	} else {
-		var mod = {
-			exports: {}
-		};
-		factory(mod.exports, global.detect);
-		global.animationEvent = mod.exports;
-	}
-})(this, function (exports, _detect) {
+define(['exports', './common/detect'], function (exports, _detect) {
 	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
@@ -32,4 +20,3 @@
 
 	exports.default = animationEvent;
 });
-//# sourceMappingURL=animation-event.js.map

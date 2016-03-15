@@ -1,1 +1,0 @@
-{"version":3,"sources":["is-element.js"],"names":[],"mappings":";;;;;;;;;;;;;AAAA;;;;;AAEA,UAAS,SAAT,CAAmB,GAAnB,EAAwB;AACvB,SAAO,eAAe,WAAf,CADgB;EAAxB;mBAGe","file":"is-element.js","sourcesContent":["'use strict';\n\nfunction isElement(obj) {\n\treturn obj instanceof HTMLElement;\n}\nexport default isElement;\n"],"sourceRoot":"/source/"}

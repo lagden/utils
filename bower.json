@@ -8,24 +8,26 @@
     "homepage": "http://lagden.in"
   }],
   "main": [
-    "dist/utils.js"
+    "dist/index.js"
   ],
   "moduleType": [
-    "globals",
     "amd",
-    "node",
-    "es6"
   ],
   "repository": {
     "type": "git",
     "url": "git://github.com/lagden/utils.git"
   },
   "ignore": [
-    "**/.*",
-    "test",
-    "gulpfile.*",
-    "*.md",
-    "package.json"
+    "*.log",
+    ".*",
+    "gulpf*",
+    "index.js",
+    "package.json",
+    ".nyc_output/",
+    "coverage/",
+    "lib/",
+    "node_modules/",
+    "test/"
   ],
   "keywords": [
     "utilities",

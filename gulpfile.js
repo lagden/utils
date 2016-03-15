@@ -1,28 +1,30 @@
 'use strict';
 
 const gulp = require('gulp');
-const sourcemaps = require('gulp-sourcemaps');
-const xo = require('gulp-xo');
 const babel = require('gulp-babel');
+const xo = require('gulp-xo');
 
-function handleError(err) {
-	if (err) {
-		this.emit('end');
-	}
+const scriptSource = ['index.js', 'lib**/*.js'];
+const babelOptions = {
+	plugins: [
+		'transform-es2015-modules-amd'
+	]
+};
+
+function errorHandler() {
+	this.emit('end');
 }
 
 function script() {
 	return gulp
-		.src('src/**/*.js')
-		.pipe(xo().on('error', handleError))
-		.pipe(sourcemaps.init())
-		.pipe(babel())
-		.pipe(sourcemaps.write('.'))
+		.src(scriptSource)
+		.pipe(xo().on('error', errorHandler))
+		.pipe(babel(babelOptions))
 		.pipe(gulp.dest('dist'));
 }
 
 function watch() {
-	gulp.watch('src/**/*.js', ['script']);
+	gulp.watch(scriptSource, ['script']);
 }
 
 gulp.task('script', script);
