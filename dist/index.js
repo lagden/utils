@@ -1,8 +1,9 @@
-(function (global, factory) {
+(function(global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
-	typeof define === 'function' && define.amd ? define(['exports'], factory) :
-	(factory((global.utils = global.utils || {})));
-}(this, function (exports) { 'use strict';
+		typeof define === 'function' && define.amd ? define(['exports'], factory) :
+			(factory((global.utils = global.utils || {})));
+}(this, function(exports) {
+	'use strict';
 
 	function detect(lista) {
 		var i = 0;
@@ -24,7 +25,7 @@
 	}
 
 	function extend(a, b) {
-		Object.keys(b).forEach(function (prop) {
+		Object.keys(b).forEach(function(prop) {
 			a[prop] = b[prop];
 		});
 		return a;
