@@ -11,7 +11,7 @@
     "dist/index.js"
   ],
   "moduleType": [
-    "umd",
+    "umd"
   ],
   "repository": {
     "type": "git",
