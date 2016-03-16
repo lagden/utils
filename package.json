@@ -18,6 +18,7 @@
     "email": "lagden@gmail.com",
     "url": "http://lagden.in"
   },
+  "main": "index.js",
   "jsnext:main": "index.js",
   "repository": "lagden/utils",
   "scripts": {
@@ -27,7 +28,7 @@
     "test": "BABEL_ENV=ava nyc ava",
     "rollup": "BABEL_ENV=rollup rollup -c rollup.config.js",
     "pretty": "esformatter -i --indent.value=\"\t\" 'dist/*.js'",
-    "build": "npm run rollup && npm run pretty"
+    "build": "npm test && npm run rollup && npm run pretty"
   },
   "engines": {
     "node": ">=4.0.0"
