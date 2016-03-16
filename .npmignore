@@ -1,13 +1,11 @@
-*.log
-.editorconfig
-.git*
-.travis*
-gulpf*
-bower*
-.nyc_output/
-coverage/
-node_modules/
-test/
+.nyc_output
+coverage
+test
+.e*
+.g*
+.t*
+bower.json
+rollup*.js
 
 # don't ignore .npmignore files
 # these are used in some tests.

@@ -11,23 +11,23 @@
     "dist/index.js"
   ],
   "moduleType": [
-    "amd",
+    "umd",
   ],
   "repository": {
     "type": "git",
     "url": "git://github.com/lagden/utils.git"
   },
   "ignore": [
-    "*.log",
-    ".*",
-    "gulpf*",
-    "index.js",
-    "package.json",
     ".nyc_output/",
     "coverage/",
     "lib/",
     "node_modules/",
-    "test/"
+    "test/",
+    ".*",
+    "index.js",
+    "package.json",
+    "rollup*.js",
+    "*.log"
   ],
   "keywords": [
     "utilities",

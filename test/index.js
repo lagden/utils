@@ -14,6 +14,13 @@ test('escapeHtml', t => {
 	t.same(escaped, '&lt;a href=&quot;http://lagden.in/?a=123&amp;b=456&quot;&gt;Lagden&#39;s stuff&lt;/a&gt;');
 });
 
+test('extend', t => {
+	const a = {a: 1};
+	const b = {b: 2};
+	const opts = u.extend(a, b);
+	t.same(opts, {a: 1, b: 2});
+});
+
 test('isElement', t => {
 	const node = document.querySelector('#apenasUmShow');
 	const isElement = u.isElement(node);
