@@ -11,20 +11,23 @@ test('animationEvent', t => {
 
 test('escapeHtml', t => {
 	const escaped = u.escapeHtml('<a href="http://lagden.in/?a=123&b=456">Lagden\'s stuff</a>');
-	t.same(escaped, '&lt;a href=&quot;http://lagden.in/?a=123&amp;b=456&quot;&gt;Lagden&#39;s stuff&lt;/a&gt;');
+	t.is(escaped, '&lt;a href=&quot;http://lagden.in/?a=123&amp;b=456&quot;&gt;Lagden&#39;s stuff&lt;/a&gt;');
 });
 
 test('extend', t => {
 	const a = {a: 1};
 	const b = {b: 2};
 	const opts = u.extend(a, b);
-	t.same(opts, {a: 1, b: 2});
+	t.deepEqual(opts, {a: 1, b: 2});
 });
 
 test('isElement', t => {
 	const node = document.querySelector('#apenasUmShow');
+	const svg = document.querySelector('#ex');
+	const isElementSvg = u.isElement(svg);
 	const isElement = u.isElement(node);
 	const isNotElement = u.isElement({});
+	t.true(isElementSvg);
 	t.true(isElement);
 	t.false(isNotElement);
 	t.is(node.id, 'apenasUmShow');
@@ -32,16 +35,16 @@ test('isElement', t => {
 
 test('qS (querySelector)', t => {
 	const node = u.qS('#apenasUmShow');
-	t.same(node.id, 'apenasUmShow');
+	t.is(node.id, 'apenasUmShow');
 });
 
 test('textNode', t => {
 	const node = document.getElementById('apenasUmShow');
 	u.textNode(node, ' legal');
-	t.same(node.textContent, 'Apenas um show legal');
+	t.is(node.textContent, 'Apenas um show legal');
 	u.textNode(node, '<b>ulala</b>', true);
-	t.same(node.firstElementChild.tagName, 'B');
-	t.same(node.firstElementChild.textContent, 'ulala');
+	t.is(node.firstElementChild.tagName, 'B');
+	t.is(node.firstElementChild.textContent, 'ulala');
 });
 
 test('transitionEvent', t => {
