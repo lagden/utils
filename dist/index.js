@@ -1,7 +1,7 @@
 (function(global, factory) {
 	typeof exports === 'object' && typeof module !== 'undefined' ? factory(exports) :
 		typeof define === 'function' && define.amd ? define(['exports'], factory) :
-			(factory((global.utils = global.utils || {})));
+			(factory((global.lagdenUtils = global.lagdenUtils || {})));
 }(this, function(exports) {
 	'use strict';
 
@@ -32,7 +32,7 @@
 	}
 
 	function isElement(obj) {
-		return obj instanceof HTMLElement;
+		return obj instanceof HTMLElement || obj instanceof SVGElement;
 	}
 
 	function qS(el) {
@@ -62,5 +62,9 @@
 	exports.qS = qS;
 	exports.textNode = textNode;
 	exports.transitionEvent = transitionEvent;
+
+	Object.defineProperty(exports, '__esModule', {
+		value: true
+	});
 
 }));

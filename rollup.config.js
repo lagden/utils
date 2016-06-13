@@ -6,7 +6,7 @@ export default {
 	entry: 'index.js',
 	format: 'umd',
 	dest: 'dist/index.js',
-	moduleName: 'utils',
+	moduleName: 'lagdenUtils',
 	plugins: [
 		babel()
 	]
