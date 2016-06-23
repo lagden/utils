@@ -6,34 +6,11 @@ typeof exports === 'object' && typeof module !== 'undefined' ? factory( exports 
 'use strict';
 
 function detect( lista ) {
-	var item = void 0;
-	var _iteratorNormalCompletion = true;
-	var _didIteratorError = false;
-	var _iteratorError = undefined;
-
-	try {
-		for ( var _iterator = lista[ Symbol.iterator ](), _step; !( _iteratorNormalCompletion = ( _step = _iterator.next() ).done ); _iteratorNormalCompletion = true ) {
-			item = _step.value;
-
-			if ( document.documentElement.style[ item[ 0 ] ] !== undefined ) {
-				return item;
-			}
-		}
-	} catch ( err ) {
-		_didIteratorError = true;
-		_iteratorError = err;
-	} finally {
-		try {
-			if ( !_iteratorNormalCompletion && _iterator.return ) {
-				_iterator.return();
-			}
-		} finally {
-			if ( _didIteratorError ) {
-				throw _iteratorError;
-			}
+	for ( var i = 0; i < lista.length; i++ ) {
+		if ( document.documentElement.style[ lista[ i ][ 0 ] ] !== undefined ) {
+			return lista[ i ];
 		}
 	}
-
 	return lista[ 0 ];
 }
 
