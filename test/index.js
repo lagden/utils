@@ -48,6 +48,6 @@ test('textNode', t => {
 });
 
 test('transitionEvent', t => {
-	const eventName = u.transitionEvent(window.document);
+	const eventName = u.transitionEvent(document);
 	t.regex(eventName, /(transitionend|mozTransitionEnd|oTransitionEnd|webkitTransitionEnd)/);
 });
