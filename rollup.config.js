@@ -1,13 +1,13 @@
 'use strict';
 
-import babel from 'rollup-plugin-babel';
+import buble from 'rollup-plugin-buble';
 
 export default {
-	entry: 'index.js',
-	format: 'umd',
+	entry: 'src/index.js',
 	dest: 'dist/index.js',
+	format: 'umd',
 	moduleName: 'lagdenUtils',
 	plugins: [
-		babel()
+		buble()
 	]
 };

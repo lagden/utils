@@ -1,5 +1,7 @@
 'use strict';
 
+const jsdom = require('jsdom');
+
 const html = [
 	'<div id="apenasUmShow">Apenas um show</div>',
 	'<svg id="ex" version="1.1" focusable="false" xmlns="https://www.w3.org/2000/svg" viewBox="0 0 100 100">',
@@ -7,9 +9,9 @@ const html = [
 	'</svg>'
 ].join('');
 
-global.document = require('jsdom').jsdom(html);
+global.document = jsdom.jsdom(html);
 global.window = document.defaultView;
 global.HTMLElement = window.HTMLElement;
-// global.SVGElement = window.SVGElement;
+global.SVGElement = window.SVGElement;
 global.SVGElement = global.HTMLElement;
 global.navigator = window.navigator;

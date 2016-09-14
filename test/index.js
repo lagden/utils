@@ -1,7 +1,13 @@
 'use strict';
 
 import test from 'ava';
-import * as u from '../';
+import * as u from '../src';
+import detect from '../src/lib/common/detect';
+
+test('detect', t => {
+	const s = detect([1, 2, 3]);
+	t.is(s, 1);
+});
 
 test('animationEvent', t => {
 	const eventName = u.animationEvent();
