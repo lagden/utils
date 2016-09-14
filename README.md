@@ -5,8 +5,8 @@
 
 [ci-img]:     https://travis-ci.org/lagden/utils.svg
 [ci]:         https://travis-ci.org/lagden/utils
-[cover-img]:  https://codecov.io/github/lagden/utils/coverage.svg?branch=master
-[cover]:      https://codecov.io/github/lagden/utils?branch=master
+[cover-img]:  https://codecov.io/gh/lagden/utils/branch/master/graph/badge.svg
+[cover]:      https://codecov.io/gh/lagden/utils
 [devDep-img]: https://david-dm.org/lagden/utils/dev-status.svg
 [devDep]:     https://david-dm.org/lagden/utils#info=devDependencies
 
