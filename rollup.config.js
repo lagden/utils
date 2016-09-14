@@ -9,5 +9,6 @@ export default {
 	moduleName: 'lagdenUtils',
 	plugins: [
 		buble()
-	]
+	],
+	sourceMap: true
 };
