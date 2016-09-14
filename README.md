@@ -17,7 +17,7 @@ Some helpers and utilities.
 ## Install
 
 ```
-npm install lagden-utils --save
+npm i -S lagden-utils
 ```
 
 
