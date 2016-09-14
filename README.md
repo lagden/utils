@@ -16,16 +16,8 @@ Some helpers and utilities.
 
 ## Install
 
-Via [NPM](https://www.npmjs.com/)
-
 ```
 npm install lagden-utils --save
-```
-
-Via [bower](https://bower.io/)
-
-```
-bower install lagden-utils --save
 ```
 
 
